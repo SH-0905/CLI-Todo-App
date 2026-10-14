@@ -41,7 +41,8 @@ def save_tasks(taskList):
 def main():
     taskList = load_tasks()
     while True:
-        option = input("""----------------Todo App-----------------------
+        option = input("""
+        ----------------Todo App-----------------------
         1. Add Task
         2. View Tasks
         3. Toggle Task Status

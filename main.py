@@ -16,16 +16,22 @@ def view_tasks(taskList):
         print(f'{i}. {task}')
 
 def mark_task(taskList):
-    task = int(input("Mark task: "))
-    if taskList[task-1].startswith('DONE -- '):
-        taskList[task-1] = taskList[task-1].replace('DONE -- ', "")
-    else:
-        taskList[task-1] = f'DONE -- {taskList[task-1]}'
+    try:
+        task = int(input("Mark task: "))
+        if taskList[task-1].startswith('DONE -- '):
+            taskList[task-1] = taskList[task-1].replace('DONE -- ', "")
+        else:
+            taskList[task-1] = f'DONE -- {taskList[task-1]}'
+    except IndexError:
+        print("Invalid Selection.")
 
 def delete_task(taskList):
-    task = int(input("Delete task: "))
-    taskList.pop(task-1)
-    return taskList
+    try:
+        task = int(input("Delete task: "))
+        taskList.pop(task-1)
+        return taskList
+    except IndexError:
+        print("Invalid Selection.")
 
 def save_tasks(taskList):
     with open(TODO_FILE, "w") as file:
@@ -47,9 +53,9 @@ def main():
         elif option == '2':
             view_tasks(taskList)
         elif option == '3':
-            mark_task(taskList)                 # add error handling
+            mark_task(taskList)
         elif option == '4':
-            taskList = delete_task(taskList)    # add error handling
+            taskList = delete_task(taskList)
         elif option == '5':
             save_tasks(taskList)
             break

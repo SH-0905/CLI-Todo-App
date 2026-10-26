@@ -13,7 +13,9 @@ A lightweight Command-Line Interface (CLI) task manager built with Python. It re
   * **Delete:** Remove completed or unwanted tasks from the text file.
 * **Zero Dependencies:** Built entirely using Python's standard library.
 
----
+## WIP
+
+* Clear previous text screen upon selection for a cleaner look.
 
 ## Getting Started
 
